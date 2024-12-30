@@ -62,6 +62,14 @@ private:
     }
 
 public:
+    bool CheckCPUCapability() {
+        int i[4];
+        __cpuid(i, 1);
+        bool AES_NI = i[2] & (1 << 25);
+        bool SSE2 = i[3] & (1 << 26);
+        return AES_NI && SSE2;
+    }
+
     bool Encrypt_ECB_128_InPlace(uint8_t* buffer, size_t cbBufferSize, uint8_t key[16], bool clearSensitiveData = false) {
         if (!buffer || !key || cbBufferSize % 16)return false;
         
