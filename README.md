@@ -7,6 +7,8 @@ Easy to use
 
 Pure SIMD implementation, high efficiency
 
+https://crackme.net/articles/simd_aes/
+
 ```C++
 #include <iostream>
 #include "SIMDAES.h"
